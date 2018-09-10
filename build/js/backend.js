@@ -1,3 +1,5 @@
+// @koala-prepend "../vendor/summernote/js/summernote.js"
+// @koala-prepend "../vendor/summernote/js/plugins/summernote-image-attributes.js"
 /**
  * This file is part of OXID eSales WYSIWYG module.
  *
@@ -50,6 +52,24 @@ $.noConflict();
 
                         var $editor = $( this ).summernote(
                             {
+
+                                // IMG Attribute Integartion
+                                popover: {
+                                    image: [
+                                        ['custom', ['imageAttributes']],
+                                        ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                                        ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                                        ['remove', ['removeMedia']]
+                                    ],
+                                },
+                                lang: 'en-US', // Change to your chosen language
+                                imageAttributes:{
+                                    icon:'<i class="note-icon-pencil"/>',
+                                    removeEmpty:false, // true = remove attributes | false = leave empty if present
+                                    disableUpload: false // true = don't display Upload Options | Display Upload Options
+                                },
+                                // IMG Attribute Integartion
+
                                 lang: 'de-DE',
                                 minHeight: iHeight || 100,
 
